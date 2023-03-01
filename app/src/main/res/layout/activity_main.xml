@@ -6,6 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-36dp"
+        tools:layout_editor_absoluteY="-327dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="66dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperature "
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3°C"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wind"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2m/s"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/goToWeather"
         android:layout_width="wrap_content"
@@ -14,45 +64,8 @@
         android:backgroundTint="#00BCD4"
         android:text="Will it rain?"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temperature "
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="135dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3°C"
-        android:textSize="32sp"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="111dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2m/s"
-        android:textSize="32sp"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="217dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wind"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout_editor_absoluteX="178dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
