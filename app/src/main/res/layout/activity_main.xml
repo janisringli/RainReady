@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-36dp"
-        tools:layout_editor_absoluteY="-327dp">
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="71dp">
 
         <Space
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/temperatureTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3°C"
@@ -47,7 +47,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/windTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2m/s"
