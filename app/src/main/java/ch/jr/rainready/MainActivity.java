@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private TextView weatherTextView;
     private TextView windTextView;
 
-
+Button goToWeather;
 
 
 
@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         weatherTextView = findViewById(R.id.temperatureTextView);
         windTextView = findViewById(R.id.windTextView);
+        goToWeather = findViewById(R.id.goToWeather);
+        goToWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                startActivity(intent);
+            }
+        });
 
         new GetWeatherTask().execute(WEATHER_API);
 
@@ -166,5 +174,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 System.out.println("something");
             }
         }
+    }
+    //get to the new activity
+    public void goToWeathertActivity(View view) {
+        Intent intent = new Intent(this, WeatherActivity.class);
+        startActivity(intent);
     }
 }
