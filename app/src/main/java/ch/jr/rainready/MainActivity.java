@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         //store the location in a variable
         WEATHER_LAT = String.valueOf(location.getLatitude());
         WEATHER_LON = String.valueOf(location.getLongitude());
+
+        WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
+        new GetWeatherTask().execute(WEATHER_API);
     }
 
 
