@@ -59,8 +59,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private TextView windTextView;
 
 
-    public String WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
 
+
+
+    public String WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +72,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         weatherTextView = findViewById(R.id.temperatureTextView);
         windTextView = findViewById(R.id.windTextView);
 
+        new GetWeatherTask().execute(WEATHER_API);
 
         try {
-            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
                 ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
             }
-        } catch (Exception e) {
+        } catch (Exception e){
             e.printStackTrace();
         }
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -90,4 +93,49 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         WEATHER_LAT = String.valueOf(location.getLatitude());
         WEATHER_LON = String.valueOf(location.getLongitude());
     }
+
+
+    private class GetWeatherTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+            String result = null;
+
+            try {
+                URL url = new URL(urls[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.connect();
+
+                InputStream stream = connection.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(stream, CHARSET_NAME));
+
+                StringBuilder buffer = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    buffer.append(line);
+                }
+
+                result = buffer.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return result;
+        }
+
     }
+}
