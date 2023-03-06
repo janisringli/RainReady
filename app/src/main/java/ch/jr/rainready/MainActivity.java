@@ -59,10 +59,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private TextView windTextView;
 
 
-
-
-
     public String WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +70,24 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         weatherTextView = findViewById(R.id.temperatureTextView);
         windTextView = findViewById(R.id.windTextView);
 
-        
+
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0L, (float) 0, (LocationListener) this);
+
+
     }
-}
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        //store the location in a variable
+        WEATHER_LAT = String.valueOf(location.getLatitude());
+        WEATHER_LON = String.valueOf(location.getLongitude());
+    }
+    }
