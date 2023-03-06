@@ -137,5 +137,31 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             return result;
         }
 
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            if (result != null) {
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    JSONObject mainObject = jsonObject.getJSONObject("main");
+                    JSONObject windObject = jsonObject.getJSONObject("wind");
+                    double temperature = mainObject.getDouble("temp");
+                    double wind = windObject.getDouble("speed");
+
+                    TEMPERATURE = String.valueOf(Math.round(temperature));
+                    WIND = String.valueOf(Math.round(wind));
+                    System.out.println(TEMPERATURE);
+                    weatherTextView.setText(TEMPERATURE + TEMPERATURE_SYMBOL + "C");
+                    windTextView.setText(WIND + "m/s");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // Handle null result
+                new GetWeatherTask().execute(WEATHER_API);
+                System.out.println("something");
+            }
+        }
     }
 }
