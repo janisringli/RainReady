@@ -13,24 +13,13 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.JsonReader;
-import android.view.View;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.TextView;
-import android.Manifest;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
-
 
 
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private String WEATHER_LAT;
     private String WEATHER_LON;
+
+    private String weather;
     private String API_KEY = "790fc27c50273fcd7df986067dee8ab1";
     private TextView weatherTextView;
     private TextView windTextView;
@@ -72,15 +63,9 @@ Button goToWeather;
         weatherTextView = findViewById(R.id.temperatureTextView);
         windTextView = findViewById(R.id.windTextView);
         goToWeather = findViewById(R.id.goToWeather);
-        goToWeather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        new GetWeatherTask().execute(WEATHER_API);
+
+
 
         try {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
@@ -91,7 +76,7 @@ Button goToWeather;
         }
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0L, (float) 0, (LocationListener) this);
-
+        new GetWeatherTask().execute(WEATHER_API);
 
     }
 
@@ -100,6 +85,7 @@ Button goToWeather;
         //store the location in a variable
         WEATHER_LAT = String.valueOf(location.getLatitude());
         WEATHER_LON = String.valueOf(location.getLongitude());
+
 
         WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
         new GetWeatherTask().execute(WEATHER_API);
@@ -157,27 +143,32 @@ Button goToWeather;
                     JSONObject jsonObject = new JSONObject(result);
                     JSONObject mainObject = jsonObject.getJSONObject("main");
                     JSONObject windObject = jsonObject.getJSONObject("wind");
+                    JSONObject weatherObject = jsonObject.getJSONArray("weather").getJSONObject(0);
+                    String weather = weatherObject.getString("main");
                     double temperature = mainObject.getDouble("temp");
                     double wind = windObject.getDouble("speed");
 
                     TEMPERATURE = String.valueOf(Math.round(temperature));
                     WIND = String.valueOf(Math.round(wind));
-                    System.out.println(TEMPERATURE);
+                    if (weather.equals("Rain")) {
+                        vibrate();
+                    }
                     weatherTextView.setText(TEMPERATURE + TEMPERATURE_SYMBOL + "C");
                     windTextView.setText(WIND + "m/s");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else {
-                // Handle null result
-                new GetWeatherTask().execute(WEATHER_API);
-                System.out.println("something");
             }
+            }
+
+        }
+
+        public void vibrate(){
+            System.out.println("its raining");
+            System.out.println("vibrate");
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+
         }
     }
-    //get to the new activity
-    public void goToWeathertActivity(View view) {
-        Intent intent = new Intent(this, WeatherActivity.class);
-        startActivity(intent);
-    }
-}
+
