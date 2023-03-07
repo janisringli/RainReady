@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private static String TEMPERATURE = "";
     private static String WIND = "";
+
+    private static String WEATHER = "";
     private String API_URL = "https://api.openweathermap.org/data/2.5/weather?";
     private static final String TEMPERATURE_SYMBOL = "°";
     public static final String CHARSET_NAME = "UTF-8";
@@ -151,6 +153,7 @@ Button goToWeather;
 
                     TEMPERATURE = String.valueOf(Math.round(temperature));
                     WIND = String.valueOf(Math.round(wind));
+                    WEATHER = weather;
                     if (weather.equals("Rain")) {
                         vibrate();
                     }
@@ -169,8 +172,9 @@ Button goToWeather;
             Bundle bundle = new Bundle();
             bundle.putString("temperature", TEMPERATURE);
             bundle.putString("wind", WIND);
-            bundle.putString("weather", weather);
+            bundle.putString("weather", WEATHER);
             i.putExtras(bundle);
+            //get the weather
 
             startActivity(i);
         }
