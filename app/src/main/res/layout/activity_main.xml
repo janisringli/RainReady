@@ -30,7 +30,7 @@
             android:id="@+id/temperatureTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3°C"
+            android:text="-°C"
             android:textAlignment="center"
             android:textSize="32sp" />
 
@@ -50,7 +50,7 @@
             android:id="@+id/windTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2m/s"
+            android:text="-m/s"
             android:textAlignment="center"
             android:textSize="32sp" />
 
