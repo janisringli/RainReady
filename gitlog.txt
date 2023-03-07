@@ -1,0 +1,131 @@
+commit dd4b6b9d321447012c36d7fac160f3b7dfae5885
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 14:10:54 2023 +0100
+
+    add souts for testing
+
+commit c43705845b875d6b4e5f09d30f9b9ebe834c77e0
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 11:34:25 2023 +0100
+
+    implemented whole landingpage(im a frontend dev)
+
+commit 4e97304955d1238d4abc27e958a2fdda65feadbf
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:58:43 2023 +0100
+
+    redesign weatherActivity and change buttonclick listener
+
+commit e8b197088202301a7a69caa1f02e293408389bd7
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:46:16 2023 +0100
+
+    fix bundler so that the right data gets to the new activitx
+
+commit f93c9e75cf112fd8fda4c69af68b3df1d11c4039
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:31:08 2023 +0100
+
+    update intent to new activity and add a bundler to store data from the api
+
+commit 7dd9dabb5c194060c55f1c1048bd1c5df361e768
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:29:51 2023 +0100
+
+    implements vibration on rain
+
+commit e78c01be2467e5e60abda98c50816b6024194084
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:26:13 2023 +0100
+
+    change color of whole app
+
+commit 1fd1bc0af02aea823c4037e90ca24287c1f62ee4
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Tue Mar 7 08:24:32 2023 +0100
+
+    change icon to a custom of my own
+
+commit f51062ad3dfd460355b1f2ce1267b663a9e3e665
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:23:27 2023 +0100
+
+    add button to go to the next activity
+
+commit 4e5d486efaed6a22eae57d20c8179f70968337f9
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:19:46 2023 +0100
+
+    add a weather api call to onLocationChange to get the accurate temps when location gets changed
+
+commit 40f92c54b3a4ef48d9cb7395959e61433fa150a4
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:18:15 2023 +0100
+
+    add api data to local textvies
+
+commit 13477410dd9744fc3a0b02286fd1ce0f44762f15
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:17:10 2023 +0100
+
+    make api call getting data such as temperature and wind
+
+commit 994c13b13c0935afe26b35aedf107bb02cf9955f
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:14:10 2023 +0100
+
+    add locationManager and make an if statement that tests if the app has permission
+
+commit 4111e91a38903bbe88cf0d04eb03d709cd728f88
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 15:11:59 2023 +0100
+
+    add all variables and the connectionstring for the api calls
+
+commit eda5a5dfc8ebde1f292d0e62b77f85f0ea13d818
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 14:48:29 2023 +0100
+
+    rename textviews before filling them with api data
+
+commit a86584333ba94db4fde0cf641a191c337e101e8b
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 14:47:12 2023 +0100
+
+    add user-permission for persice location
+
+commit 41359bb9d6d52b717cafb6df598a885a2007a9db
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Mon Mar 6 14:45:52 2023 +0100
+
+    add location dependency
+
+commit dc13b25ce99ef5b0d0e6d422f68bbb52fff5b5aa
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Wed Mar 1 16:44:24 2023 +0100
+
+    access location dependencie
+
+commit 2e22d482a8b14a0c3f80bd6b78678e1533d5a93c
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Wed Mar 1 16:21:39 2023 +0100
+
+    intent developed for the weather acitvity
+
+commit 754d84320d27d95f8ca029cdca3719ba9c2d6644
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Wed Mar 1 16:08:45 2023 +0100
+
+    design of weather acivity done
+
+commit 6d85a68ff556657a2452513ed3a80f74e650fb95
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Wed Mar 1 15:59:17 2023 +0100
+
+    designof main acitivity done
+
+commit 5a049a041ff9e9d3146d4438c3839f098a3354fd
+Author: Janis Ringli <janis.ringli@gmail.com>
+Date:   Wed Mar 1 15:27:08 2023 +0100
+
+    init

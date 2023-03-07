@@ -86,11 +86,16 @@ html {
   width: 100vw;
 }
 .app-description {
-  width: calc(50% - 30px);
+  width: calc(30% - 30px);
+}
+.app-description span {
+  color: #54b9d1;
 }
 .app-image {
-  width: calc(50% - 30px);
-  height: 250px;
+  display: flex;
+  flex-direction: row;
+  width: calc(70% - 30px);
+  height: 275px;
 }
 .app-image img {
   width: 100%;
