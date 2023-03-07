@@ -21,13 +21,7 @@ public class WeatherActivity extends AppCompatActivity {
 
 
         backToMain = findViewById(R.id.backToMain);
-        backToMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WeatherActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        backToMain.setOnClickListener(v -> backToMain());
 
         Bundle bundle = getIntent().getExtras();
         currentWeatherStatus.setText(bundle.getString("weather"));
@@ -35,5 +29,11 @@ public class WeatherActivity extends AppCompatActivity {
             currentWeatherStatus.setText("No weather data available");
         }
 
+    }
+    public void backToMain(){
+        Intent i = new Intent(this, MainActivity.class);
+
+
+        startActivity(i);
     }
 }
