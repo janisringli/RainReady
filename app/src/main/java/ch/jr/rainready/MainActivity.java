@@ -63,6 +63,7 @@ Button goToWeather;
         weatherTextView = findViewById(R.id.temperatureTextView);
         windTextView = findViewById(R.id.windTextView);
         goToWeather = findViewById(R.id.goToWeather);
+        goToWeather.setOnClickListener(v -> goToWeather());
 
 
 
@@ -162,7 +163,17 @@ Button goToWeather;
             }
 
         }
+        public void goToWeather(){
+            Intent i = new Intent(this, WeatherActivity.class);
 
+            Bundle bundle = new Bundle();
+            bundle.putString("temperature", TEMPERATURE);
+            bundle.putString("wind", WIND);
+            bundle.putString("weather", weather);
+            i.putExtras(bundle);
+
+            startActivity(i);
+        }
         public void vibrate(){
             System.out.println("its raining");
             System.out.println("vibrate");
