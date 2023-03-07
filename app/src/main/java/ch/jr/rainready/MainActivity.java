@@ -92,6 +92,8 @@ Button goToWeather;
 
         WEATHER_API = API_URL + "lat=" + WEATHER_LAT + "&lon=" + WEATHER_LON + "&units=metric" + "&appid=" + API_KEY;
         new GetWeatherTask().execute(WEATHER_API);
+        System.out.println(WEATHER_LAT);
+        System.out.println(WEATHER_LON);
     }
 
 
